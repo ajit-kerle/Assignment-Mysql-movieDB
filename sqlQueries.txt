@@ -1,0 +1,20 @@
+sql queries use for this assignment
+
+       1  GET /api/v1/longest-duration-movies
+********** get long duration movie api *******************
+ sql='SELECT tconst,primaryTitle,runtimeMinutes,genres FROM movies'
+
+ 
+        2  GET /api/v1/top-rated-movies
+******** his route returns as JSON the movies with an averageRating > 6.0, in sorted
+             order by averageRating ********************
+
+sql='SELECT movies.tconst,primaryTitle,genres,ratings.averageRating FROM movies JOIN ratings ON ratings.tconst=movies.tconst where (ratings.averageRating >6.0)'  
+
+
+            3  POST /api/v1/new-movie
+********** Insert Movie in Mysql data base ***********
+      
+      node Mysql package syntax
+ sql='INSERT INTO movies SET tconst = ?,titleType = ?,primaryTitle = ?,runtimeMinutes = ?,genres = ?'
+  ? mark will interchange this array of element [tconst,titleType,primaryTitle,runtimeMinutes,genres]
